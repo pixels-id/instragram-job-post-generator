@@ -1,0 +1,28 @@
+{
+  "name": "@example/starter",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "devDependencies": {
+    "@astrojs/renderer-react": "^0.4.1",
+    "@astrojs/renderer-svelte": "^0.3.1",
+    "@types/fabric": "^4.5.7",
+    "@types/react": "^17.0.39",
+    "astro": "^0.22.20",
+    "canvg": "^3.0.10",
+    "fabric": "^5.0.0",
+    "konva": "^8.3.2"
+  },
+  "dependencies": {
+    "@tiptap/react": "^2.0.0-beta.108",
+    "@types/fontfaceobserver": "^2.1.0",
+    "fontfaceobserver": "^2.1.0",
+    "react-dropzone": "^12.0.4",
+    "use-undo": "^1.0.5"
+  }
+}
