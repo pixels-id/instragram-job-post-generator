@@ -1,0 +1,20 @@
+query findJobs($input: MainFindJobsRequestDTO!) {
+  findJobs(input: $input) {
+    ...JobDetails
+  }
+}
+
+fragment JobDetails on MainJobs {
+  _id
+  position
+  type
+  companyName
+  location {
+    type
+  }
+  description
+  howToApply
+  startDate
+  endDate
+  isShowEndDate
+}

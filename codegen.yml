@@ -1,0 +1,8 @@
+documents: './src/**/*.gql'
+generates:
+  src/gql/generated.ts:
+    schema: 'https://api.dgtal.id/graphql/query'
+    plugins:
+      - typescript
+      - typescript-operations
+      - typed-document-node
