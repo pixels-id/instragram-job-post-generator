@@ -56,12 +56,12 @@ export default function Canvas() {
 		})
 		const jobType = new fabric.IText('Freelance', {
 			...headerTextOptions,
-			left: 576,
+			left: 341 + 45 + locationType.width,
 			name: 'jobType',
 		})
 		const dash = new fabric.Text('-', {
 			...headerTextOptions,
-			left: 552,
+			left: 341 + 15 + locationType.width,
 		})
 		const group = new fabric.Group([locationType, dash, jobType], {
 			lockMovementY: true,
@@ -88,11 +88,12 @@ export default function Canvas() {
 
 		canvas.add(companyCircle, companyCircleOutline)
 
-		const companyName = new fabric.IText('Cakefever', {
+		const companyName = new fabric.Textbox('Cakefever', {
 			...heroTextOptions,
 			top: heroTextOptions.top + 95.5,
 			fontWeight: 600,
 			fontSize: 52,
+      width: 550,
 			name: 'companyName',
 		})
 		const positionTitle = new fabric.IText('Posisi :', {
@@ -374,7 +375,7 @@ Interest in food`,
 				}
 				if (object.name === 'deadline') {
 					;(object as fabric.IText).set({
-						text: isShowEndDate
+						text: !isShowEndDate
 							? 'Tidak disebutkan'
 							: format(new Date(endDate), 'd MMMM yyyy'),
 					})
@@ -437,7 +438,7 @@ Interest in food`,
 				onClick={() => {
 					setShow(!show)
 					const base64 = fc.current.toDataURL({
-						multiplier: 5,
+						// multiplier: 5,
 						format: 'png',
 						quality: 1,
 					})
