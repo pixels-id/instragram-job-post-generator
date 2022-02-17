@@ -18,6 +18,7 @@ import {
 	heroTextOptions,
 } from './canvas.style'
 import { format } from 'date-fns'
+import { decodeHTML } from 'entities'
 
 export default function Canvas() {
 	const params = useParams('slug')
@@ -385,20 +386,27 @@ Interest in food`,
 					;(object as fabric.IText).set({ text: locationType })
 				}
 				if (object.name === 'col1Description') {
-					const re = /<[^>]*>/g
+					const htmlRe = /<[^>]*>/g
 					const pRe = /<\/p>/g
-					const text = description.replaceAll(pRe, '\n').replaceAll(re, '')
+					const text = description.replaceAll(pRe, '\n').replaceAll(htmlRe, '')
+					const lines = decodeHTML(text)
 					;(object as fabric.Textbox).set({
-						text: text,
+						text: lines,
 					})
 				}
 				if (object.name === 'howToApply') {
-					const re =
+					const emailRe =
 						/(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/
+					const urlRe = /(http?:\/\/[^\s]+)/g
+					const extractedUrl = howToApply.match(urlRe)?.[0]
+					const extractedEmail = emailRe.exec(howToApply)?.[0]
 
-					const extractedEmail = re.exec(howToApply)?.[0] || howToApply
+					const htmlRe = /<[^>]*>/g
+					const text = howToApply.replaceAll(htmlRe, '')
 
-					;(object as fabric.IText).set({ text: extractedEmail })
+					;(object as fabric.IText).set({
+						text: extractedEmail || extractedUrl || text,
+					})
 				}
 			})
 
