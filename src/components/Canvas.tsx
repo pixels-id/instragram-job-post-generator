@@ -395,14 +395,14 @@ Interest in food`,
 					})
 				}
 				if (object.name === 'howToApply') {
+					const htmlRe = /<[^>]*>/g
+					const text = decodeHTML(howToApply).replaceAll(htmlRe, '')
+
 					const emailRe =
 						/(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/
 					const urlRe = /(http?:\/\/[^\s]+)/g
-					const extractedUrl = howToApply.match(urlRe)?.[0]
-					const extractedEmail = emailRe.exec(howToApply)?.[0]
-
-					const htmlRe = /<[^>]*>/g
-					const text = howToApply.replaceAll(htmlRe, '')
+					const extractedUrl = text.match(urlRe)?.[0]
+					const extractedEmail = emailRe.exec(text)?.[0]
 
 					;(object as fabric.IText).set({
 						text: extractedEmail || extractedUrl || text,
