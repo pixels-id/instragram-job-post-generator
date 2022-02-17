@@ -93,7 +93,7 @@ export default function Canvas() {
 			top: heroTextOptions.top + 95.5,
 			fontWeight: 600,
 			fontSize: 52,
-      width: 550,
+			width: 550,
 			name: 'companyName',
 		})
 		const positionTitle = new fabric.IText('Posisi :', {
@@ -330,8 +330,10 @@ Interest in food`,
 					const pattern = new fabric.Pattern({
 						source: patternSourceCanvas.getElement() as unknown as string,
 					})
-					if (fc.current.getActiveObject().name === 'companyImage')
-						fc.current.remove(fc.current.getActiveObject())
+					fc.current.getObjects().forEach((object) => {
+						if (object.name === 'companyImage')
+							fc.current.remove(object)
+					})
 
 					const newImage = new fabric.Circle({
 						top: 193.1,
