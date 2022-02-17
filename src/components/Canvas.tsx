@@ -331,8 +331,7 @@ Interest in food`,
 						source: patternSourceCanvas.getElement() as unknown as string,
 					})
 					fc.current.getObjects().forEach((object) => {
-						if (object.name === 'companyImage')
-							fc.current.remove(object)
+						if (object.name === 'companyImage') fc.current.remove(object)
 					})
 
 					const newImage = new fabric.Circle({
@@ -367,7 +366,7 @@ Interest in food`,
 					endDate,
 				},
 			} = result.data
-
+			let restLines = ''
 			fc.current.getObjects().forEach((object) => {
 				if (object.name === 'companyName') {
 					;(object as fabric.IText).set({ text: companyName })
@@ -389,13 +388,42 @@ Interest in food`,
 					;(object as fabric.IText).set({ text: locationType })
 				}
 				if (object.name === 'col1Description') {
+					const descriptionObj = object as fabric.Textbox
 					const htmlRe = /<[^>]*>/g
 					const pRe = /<\/p>/g
-					const text = description.replaceAll(pRe, '\n').replaceAll(htmlRe, '')
+					const text = description
+						.replaceAll(pRe, '\n')
+						.replaceAll(htmlRe, '')
+						.split('\n')
+						.filter((e) => e)
+						.join('\n')
 					const lines = decodeHTML(text)
-					;(object as fabric.Textbox).set({
-						text: lines,
-					})
+
+					const numberOfLines = lines.split('\n').length
+					if (numberOfLines > 5) {
+						const linesToShow = lines.length > 5 ? 5 : lines.length
+						const only5Lines = lines
+							.split('\n')
+							.slice(0, linesToShow)
+							.join('\n')
+
+						restLines = lines.split('\n').slice(linesToShow).join('\n')
+
+						descriptionObj.set({
+							text: only5Lines,
+						})
+					} else {
+						descriptionObj.set({
+							text: lines,
+						})
+					}
+				}
+				if (object.name === 'col2Description') {
+					const descriptionObj = object as fabric.Textbox
+					if (restLines)
+						descriptionObj.set({
+							text: restLines,
+						})
 				}
 				if (object.name === 'howToApply') {
 					const htmlRe = /<[^>]*>/g
