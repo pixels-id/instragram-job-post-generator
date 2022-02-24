@@ -1,5 +1,9 @@
 # Welcome to [Job Post Image Generator](https://job-image-generator.netlify.app/)
 
+This project is submitted for hackathon for [Hashnode x Netlify](https://townhall.hashnode.com/netlify-hackathon) on February 2022.
+
+> [Blog post for the submission](https://hashnode.com/post/instagram-job-post-image-generator-using-fabricjs-with-astro-and-react-cl00pd5az040n25nvecja4jsu)
+
 > 🧑‍🚀 **Like this project?** Make PR, raise issues and Suggest features!
 
 ## 🚀 Project Structure
@@ -44,7 +48,3 @@ All commands are run from the root of the project, from a terminal:
 | `yarn dev`     | Starts local dev server at `localhost:3000`  |
 | `yarn build`   | Build your production site to `./dist/`      |
 | `yarn preview` | Preview your build locally, before deploying |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://github.com/withastro/astro) or jump into our [Discord server](https://astro.build/chat).
