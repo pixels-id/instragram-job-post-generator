@@ -1,0 +1,86 @@
+// ----------
+//  (C)olor
+// ----------
+
+$c-gray-l4: #e5e5e5; // lighter 4
+$c-gray-l3: #ccc;    // lighter 3
+$c-gray-l2: #b2b2b2; // lighter 2
+$c-gray-l1: #999;    // lighter 1
+$c-gray: #808080;    // base
+$c-gray-d1: #666;    // darker 1
+$c-gray-d2: #4d4d4d; // darker 2
+$c-gray-d3: #333;    // darker 3
+$c-gray-d4: #1a1a1a; // darker 4
+
+// text color
+.tc-gray    { color: $c-gray; }
+.tc-gray-l1 { color: $c-gray-l1; }
+.tc-gray-d1 { color: $c-gray-d1; }
+// etc.
+
+// background color
+.bc-gray    { background-color: $c-gray; }
+.bc-gray-l1 { background-color: $c-gray-l1; }
+.bc-gray-d1 { background-color: $c-gray-d1; }
+// etc.
+
+// ----------
+//  (M)argin
+// ----------
+@for $i from 0 to 16 {
+  .ma#{$i} { margin: #{$i * 0.5}rem; }
+  .my#{$i} { margin-top: #{$i * 0.5}rem; margin-bottom: #{$i * 0.5}rem; }
+  .mx#{$i} { margin-right: #{$i * 0.5}rem; margin-left: #{$i * 0.5}rem; }
+  .mt#{$i} { margin-top: #{$i * 0.5}rem; }
+  .mr#{$i} { margin-right: #{$i * 0.5}rem; }
+  .mb#{$i} { margin-bottom: #{$i * 0.5}rem; }
+  .ml#{$i} { margin-left: #{$i * 0.5}rem; }
+}
+.maauto { margin: auto }
+.myauto { margin-top: auto; margin-bottom: auto; }
+.mxauto { margin-left: auto; margin-right: auto; }
+.mtauto { margin-top: auto; }
+.mrauto { margin-right: auto; }
+.mbauto { margin-bottom: auto; }
+.mlauto { margin-left: auto; }
+
+// ----------
+//  (P)adding
+// ----------
+@for $i from 0 to 16 {
+  .pa#{$i} { padding: #{$i * 0.5}rem; }
+  .py#{$i} { padding-top: #{$i * 0.5}rem; padding-bottom: #{$i * 0.5}rem; }
+  .px#{$i} { padding-right: #{$i * 0.5}rem; padding-left: #{$i * 0.5}rem; }
+  .pt#{$i} { padding-top: #{$i * 0.5}rem; }
+  .pr#{$i} { padding-right: #{$i * 0.5}rem; }
+  .pb#{$i} { padding-bottom: #{$i * 0.5}rem; }
+  .pl#{$i} { padding-left: #{$i * 0.5}rem; }
+}
+
+// ----------
+//  (F)ont
+// ----------
+.fw100 { font-weight: 100; }
+.fw200 { font-weight: 200; }
+.fw300 { font-weight: 300; }
+.fw400 { font-weight: 400; }
+.fw500 { font-weight: 500; }
+.fw600 { font-weight: 600; }
+.fw700 { font-weight: 700; }
+.fw800 { font-weight: 800; }
+.fw900 { font-weight: 900; }
+
+.fsn   { font-style: normal; }
+.fsi   { font-style: italic; }
+
+// ----------
+//  (T)ext
+// ----------
+.tac   { text-align: center; }
+.tar   { text-align: right; }
+.tal   { text-align: left; }
+.taj   { text-align: justify; }
+.tdn   { text-decoration: none; }
+.tdu   { text-decoration: underline; }
+.ttn   { text-transform: none; }
+.ttu   { text-transform: uppercase; }

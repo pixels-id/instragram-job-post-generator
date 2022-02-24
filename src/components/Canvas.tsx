@@ -19,6 +19,7 @@ import {
 } from './canvas.style'
 import { format } from 'date-fns'
 import { decodeHTML } from 'entities'
+import styles from './canvas.module.scss'
 
 export default function Canvas() {
 	const params = useParams('slug')
@@ -446,42 +447,53 @@ Interest in food`,
 	}, [result.data?.findJobs, fc.current])
 
 	return (
-		<div id='react'>
-			<div onClick={() => imageUploader.current.click()}>
-				<input
-					type='file'
-					accept='image/*'
-					onChange={handleImageUpload}
-					ref={imageUploader}
-					style={{
-						display: 'none',
+		<div className={styles.wrapper + ' mxauto'}>
+			<div>
+				<label>Upload Image</label>
+				<div>
+					<input
+						type='file'
+						accept='image/*'
+						onChange={handleImageUpload}
+						ref={imageUploader}
+					/>
+					<div>
+						<div>Preview:</div>
+						<img
+							ref={uploadedImage}
+							src='/placeholder.png'
+							height={232}
+							width={232}
+						/>
+					</div>
+				</div>
+
+				<button
+					onClick={() => {
+						setShow(!show)
+						fc.current.discardActiveObject()
+						var sel = new fabric.ActiveSelection(fc.current.getObjects(), {
+							canvas: fc.current,
+						})
+
+						// const base64 = sel.toDataURL({
+						// 	// multiplier: 5,
+						// 	format: 'png',
+						// 	quality: 1,
+						// })
+						// const downloadLink = document.createElement('a')
+						// downloadLink.href = base64
+						// downloadLink.download = 'test.png'
+						// downloadLink.click()
+						// document.removeChild(downloadLink)
 					}}
-				/>
-				<img ref={uploadedImage} height={232} width={232} />
-				Click to upload Image
+				>
+					Download Generated Job Post
+				</button>
 			</div>
-			<button
-				style={{
-					padding: '24px 16px',
-					fontSize: '24px',
-				}}
-				onClick={() => {
-					setShow(!show)
-					const base64 = fc.current.toDataURL({
-						// multiplier: 5,
-						format: 'png',
-						quality: 1,
-					})
-					const downloadLink = document.createElement('a')
-					downloadLink.href = base64
-					downloadLink.download = 'test.png'
-					downloadLink.click()
-					document.removeChild(downloadLink)
-				}}
-			>
-				Download Image
-			</button>
-			<canvas width={1080} height={1080} ref={setRef} />
+			<div>
+				<canvas width={1080} height={1080} ref={setRef} />
+			</div>
 		</div>
 	)
 }
