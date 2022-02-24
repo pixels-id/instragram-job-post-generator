@@ -1,30 +1,4 @@
 // ----------
-//  (C)olor
-// ----------
-
-$c-gray-l4: #e5e5e5; // lighter 4
-$c-gray-l3: #ccc;    // lighter 3
-$c-gray-l2: #b2b2b2; // lighter 2
-$c-gray-l1: #999;    // lighter 1
-$c-gray: #808080;    // base
-$c-gray-d1: #666;    // darker 1
-$c-gray-d2: #4d4d4d; // darker 2
-$c-gray-d3: #333;    // darker 3
-$c-gray-d4: #1a1a1a; // darker 4
-
-// text color
-.tc-gray    { color: $c-gray; }
-.tc-gray-l1 { color: $c-gray-l1; }
-.tc-gray-d1 { color: $c-gray-d1; }
-// etc.
-
-// background color
-.bc-gray    { background-color: $c-gray; }
-.bc-gray-l1 { background-color: $c-gray-l1; }
-.bc-gray-d1 { background-color: $c-gray-d1; }
-// etc.
-
-// ----------
 //  (M)argin
 // ----------
 @for $i from 0 to 16 {
@@ -36,13 +10,7 @@ $c-gray-d4: #1a1a1a; // darker 4
   .mb#{$i} { margin-bottom: #{$i * 0.5}rem; }
   .ml#{$i} { margin-left: #{$i * 0.5}rem; }
 }
-.maauto { margin: auto }
-.myauto { margin-top: auto; margin-bottom: auto; }
 .mxauto { margin-left: auto; margin-right: auto; }
-.mtauto { margin-top: auto; }
-.mrauto { margin-right: auto; }
-.mbauto { margin-bottom: auto; }
-.mlauto { margin-left: auto; }
 
 // ----------
 //  (P)adding

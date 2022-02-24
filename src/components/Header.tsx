@@ -4,7 +4,7 @@ import styles from './header.module.scss'
 const Header = () => {
 	return (
 		<header className={styles.wrapper}>
-			<div className={`${styles.header} mxauto`}>
+			<div className={`${styles.header} mxauto px5 py3`}>
 				<div>Job Post Generator</div>
 				<a
 					href='https://github.com/pixels-id/instragram-job-post-generator'
